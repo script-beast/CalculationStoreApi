@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 const mongoURL =
   "mongodb+srv://fullimagesdb:images143@cluster0.hxc4m.mongodb.net/CalculationDB?retryWrites=true&w=majority" ||
   process.env.MONGO_URL;
@@ -30,8 +30,8 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(3000, () => {
-      console.log("Server is running on port 3000");
+    app.listen(port, () => {
+      console.log("Server is running on port " + port);
     });
   })
   .catch((err) => {
